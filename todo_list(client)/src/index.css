@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@1,500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+  /* Colors */
+  --BGcolor: rgba(230, 0, 255, 0.199);
+  --ITEMCOMPLETED: rgba(2, 255, 2, 0.414);
+  --ITEMSHADOW: rgb(5, 41, 5);
+  --TRASHCAN: rgb(188, 4, 4);
+  --TRASHHOVER: rgba(180, 53, 53, 0.274);
+  --TRASHBORDER: rgb(102, 7, 7);
+  --BORDER: rgb(54, 11, 74);
+  --ADDBUTTONBG: #02ff0278;
+
+  /* Fonts */
+  --FONT: 'Playfair Display', serif, 'Dancing Script', cursive;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+  background-image: url('./img/bg.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: var(--FONT);
+}
+
+.box {
+  margin: auto;
+  width: 80%;
+  padding: 0 5%;
+  height: 100%;
+  display: flex;
+  border: 2px solid var(--BORDER);
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--BGcolor);
+}
+
+header {
+  font-size: 30px;
+  margin-bottom: 10%;
+}
+
+main {
+  min-width: 70vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-form,
+.sort-form {
+  overflow: hidden;
+  position: relative;
+}
+
+.offscreen {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  right: -500000000px;
+  top: 50000000000px;
+}
+
+form {
+  width: 100%;
+}
+
+#addItem,
+#search {
+  width: 100%;
+  height: 35px;
+  margin: 2% auto;
+  border-radius: 8px;
+  outline: none;
+  padding: 0 2%;
+  border: 2px solid var(--BORDER);
+}
+
+#addItem {
+  width: 90%;
+  margin-right: 2%;
+}
+
+button {
+  height: 35px;
+  width: 8%;
+  border-radius: 6px;
+  outline: none;
+  border: 2px solid var(--BORDER);
+}
+
+.sort-form {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 2% 0;
+}
+
+.sort-form #sort {
+  height: 30px;
+  width: 30%;
+  outline: none;
+  border: 2px solid var(--BORDER);
+  border-radius: 5px;
+}
+
+.sort-form h3 {
+  width: 30%;
+  margin-right: 40%;
+  padding: 0 2%;
+}
+
+.list {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0 5%;
+  height: 350px;
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.list .item {
+  width: 100%;
+  display: flex;
+  margin: 1% 0;
+  padding: 2% 3%;
+  border-radius: 10px;
+}
+
+.item input {
+  width: 10%;
+}
+
+.item label {
+  width: 80%;
+  margin-left: 2%;
+  font-size: 25px;
+}
+
+.item button {
+  justify-content: flex-end;
+  font-size: 22px;
+  color: var(--TRASHCAN);
+  outline: none;
+  border-color: var(--TRASHBORDER);
+}
+
+.item button:hover {
+  background-color: var(--TRASHHOVER);
+}
+
+button {
+  cursor: pointer;
+}
+
+.completed {
+  background-color: var(--ITEMCOMPLETED);
+}
+
+.item:hover {
+  background-color: var(--ITEMCOMPLETED);
+  box-shadow: 8px 8px 9px 2px var(--ITEMSHADOW);
+}
+
+.add-form button {
+  color: var(--ITEMSHADOW);
+  border-color: var(--ITEMSHADOW);
+  background-color: var(--ADDBUTTONBG);
+}
+
+#addItem,
+#search,
+#sort {
+  font-family: inherit;
+}
+
+@media screen and (min-width: 880px) {
+  .box{
+    width: 70%;
+    height: 100%;
+
+  }
+
+  main {
+    width: 60%;
+    height: 83vh;
+  }
+
+  .add-form,.search-form,.sort-form,.list{
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  .add-form, .search-form{
+    height: 10%;
+  }
+
+  .sort-form{
+    margin-top: 1%;
+    height: 7%;
+  }
+
+  .list{
+    margin-top: 5%;
+    height: 60%;
+  }
+
+  header{
+    margin-bottom: 4%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .box{
+    width: 100%;
+  }
+
+  main{
+    min-width: 100%;
+  }
+
+  .sort-form h3 {
+    width: 40%
+  }
+
+  .list {
+    margin-bottom: 0;
+    margin-top: 20%;
+    padding: 0;
+  }
+}
